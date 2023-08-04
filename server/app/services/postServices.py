@@ -8,6 +8,7 @@ from app.schemas.userSchema import UserSchema
 from app.services.userServices import UserService
 from app.services.commentServices import CommentService
 from app.auth.auth import Auth
+from app.models.userModel import UserModel
 from datetime import datetime
 
 
@@ -16,9 +17,7 @@ class PostService():
         data = db.query(PostModel).order_by(PostModel.id.desc()).all()
         for d in data:
             author = await UserService.get_user_by_id(id=d.owner_id, db=db)
-            author.profile_img = author.profile_img
             d.author = UserSchema.from_orm(author)
-            
         return {"posts": data}
     
     async def get_post_by_id(id: int, db: Session):
@@ -117,3 +116,15 @@ class PostService():
         if not post:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id {post_id} not found")
         return {"like_count": post.like_count()}
+    
+    async def get_following_posts(user:UserSchema, db: Session):
+        current_user = db.query(UserModel).filter(UserModel.id == user.id).first()
+        current_user_following = current_user.get_following_users()
+        posts = []
+        for user in current_user_following:
+            theUser = db.query(UserModel).filter(UserModel.id == user.id).first()
+            user_posts = db.query(PostModel).filter(PostModel.owner_id == user.id).all()
+            for post in user_posts:
+                post.author = UserSchema.from_orm(theUser)
+            posts.extend(user_posts)
+        return posts

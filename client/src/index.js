@@ -14,6 +14,8 @@ import Welcome from './Routes/Welcome';
 import Post from './Routes/Post';
 import CurrentUserProfile from './Routes/UserProfile';
 import Profile from './Routes/Profile';
+import theme from './theme'
+import { ColorModeScript } from '@chakra-ui/react';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraBaseProvider>
+  <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <RouterProvider router={router} />
   </ChakraBaseProvider>
 );

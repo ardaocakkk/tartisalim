@@ -11,13 +11,14 @@ from app.models.commentModel import CommentModel
 class UserService():
     async def getAllUsers(db: Session):
         users = db.query(UserModel).all()
-        return  {"users": db.query(UserModel).all()}
+        return  {"users": users}
     
     
     async def get_user_by_name(username: str, db: Session):
         user = db.query(UserModel).filter(UserModel.username == username).first()
         user.following
         user.followers
+
         if not user:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with username {username} not found")
         return user

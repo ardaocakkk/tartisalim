@@ -46,6 +46,12 @@ class UserModel(Base):
             self.following.append(theUser)
         else:
             return "Already following"
+        
+    def get_following_users(self):
+        return self.following
+    
+    def get_profile_img(self):
+        return self.profile_img
 
     
     
@@ -60,6 +66,7 @@ class UserModel(Base):
             return {"message": "Not a follower"}
         self.followers.remove(theUser)
             
+
 
     
     

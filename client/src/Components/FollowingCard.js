@@ -62,7 +62,6 @@ export default function FollowingCard(props) {
       }
 
 
-      console.log(props.following)
 
 
 

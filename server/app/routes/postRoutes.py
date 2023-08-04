@@ -59,6 +59,10 @@ async def like_post_by_id(post_id: int, user: UserSchema = Depends(Auth.get_curr
     return await PostService.like_post_by_id(post_id=post_id, user=user, db=db)
 
 
+@router.get('/feed/following')
+async def get_following_posts(user: UserSchema = Depends(Auth.get_current_user), db: Session = Depends(get_db)):
+    return await PostService.get_following_posts(user=user, db=db)
+
 
 @router.post('/upload')
 async def uploadFile(file: UploadFile= File(...)):

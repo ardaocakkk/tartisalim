@@ -45,5 +45,5 @@ class ProfileService():
         user_followings = await UserService.get_user_followings(username=user.username, db=db)
 
         return {'posts': user_posts, 'comments': user_comments, 'user': {'username': user.username, 'email': user.email, "profile_image": user.profile_img , 'followers': user_followers, 'followings': user_followings, "follower_count": len(user_followers), "following_count": len(user_followings) }   }
-    
-   
+
+        
