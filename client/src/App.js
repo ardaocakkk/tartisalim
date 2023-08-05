@@ -28,6 +28,7 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
 import { dark } from '@mui/material/styles/createPalette';
+import Searchbar from './Components/Searchbar';
 
 function App() {
 
@@ -167,10 +168,10 @@ function App() {
   return (
     <>
       <Sidebar />
-
-      <div class="mx-auto  justify-center max-w-xl">
+      <div class="mx-auto  justify-center w-full flex ">
+      <main>
         {/* border-b-2 md:border-r-2 md:border-l-2  border-gray-200 dark:border-white */}
-        <div class="   dark:text-white rounded-lg ">
+        <div class="   dark:text-white rounded-lg  md:ml-[560px] ">
           {/* border-b-2 dark:border-gray-300 */}
           <div className='mb-3  rounded roundend-lg'>
           </div>
@@ -300,6 +301,12 @@ function App() {
           </div>
         </div>
 
+      </main>
+      <div className='dark:text-white flex  justify-center w-1/2 invisible md:visible '>
+        <div className='flex mx-auto w-full justify-center '>
+        <Searchbar/>
+        </div>
+      </div>
       </div>
 
       {/* <div className="">

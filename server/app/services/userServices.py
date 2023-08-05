@@ -11,7 +11,7 @@ from app.models.commentModel import CommentModel
 class UserService():
     async def getAllUsers(db: Session):
         users = db.query(UserModel).all()
-        return  {"users": users}
+        return  users
     
     
     async def get_user_by_name(username: str, db: Session):
@@ -22,6 +22,11 @@ class UserService():
         if not user:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with username {username} not found")
         return user
+    
+    
+    async def get_user_include_the_letters(username: str, db: Session):
+        users = db.query(UserModel).filter(UserModel.username.like(f"%{username}%")).all()
+        return users
     
     
 

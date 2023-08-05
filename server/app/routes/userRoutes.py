@@ -9,8 +9,11 @@ from app.auth.auth import Auth
 router = APIRouter(prefix="/users", tags=["Users"])
 
 @router.get('/')
-async def getAllUsers(db: Session = Depends(get_db)):
-    return await UserService.getAllUsers(db=db)
+async def getAllUsers(username:str = '', db: Session = Depends(get_db) ):
+    if not username:
+        return await UserService.getAllUsers(db=db)
+    return await UserService.get_user_include_the_letters(username=username, db=db)
+    
 @router.get('/{username}')
 async def getUserByName(username: str, db: Session = Depends(get_db)):
     return await UserService.get_user_by_name(username=username, db=db)
