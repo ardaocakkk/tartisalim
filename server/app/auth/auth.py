@@ -1,18 +1,18 @@
 from fastapi import HTTPException, status, Depends
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
-from jose import jwt
-from app.services.userServices import UserService
-from app.schemas.userSchema import UserSchema
-from app.config.database import get_db
-from app.models.userModel import UserModel
+from jose import JWTError, jwt
+from services.userServices import UserService
+from schemas.userSchema import UserSchema
+from config.database import get_db
+from models.userModel import UserModel
 from dotenv import load_dotenv
 load_dotenv()
 import os
 
 
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = "e841833dbdc313b931161c7ced323e99776485efa044025e7f0aedb1be20f336"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

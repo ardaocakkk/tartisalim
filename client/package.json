@@ -51,5 +51,9 @@
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   },
-  "proxy": "http://localhost:8000/"
+  "proxy": "http://localhost:8000/",
+  "description": "",
+  "main": "tailwind.config.js",
+  "author": "",
+  "license": "ISC"
 }

@@ -2,8 +2,8 @@ from fastapi import FastAPI,APIRouter, Depends, HTTPException, status
 from fastapi.responses import HTMLResponse
 from fastapi.responses import Response
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import userRoutes, loginRoutes, postRoutes, commentRoutes, profileRoutes
-from app.config.database import engine, Base
+from routes import userRoutes, loginRoutes, postRoutes, commentRoutes, profileRoutes
+from config.database import engine, Base
 
 
 app = FastAPI()

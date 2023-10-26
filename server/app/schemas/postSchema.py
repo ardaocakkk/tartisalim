@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ConfigDict
-from app.schemas.commentSchema import CommentSchema
+from schemas.commentSchema import CommentSchema
 
 class PostSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)

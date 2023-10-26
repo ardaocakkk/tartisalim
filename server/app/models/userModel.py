@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey, Table
-from app.config.database import Base, get_db, Session
+from config.database import Base, get_db, Session
 from sqlalchemy.orm import relationship
 from passlib.context import CryptContext
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

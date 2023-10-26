@@ -1,11 +1,11 @@
 from fastapi import HTTPException, status, Depends
-from app.config.database import get_db, Base
+from config.database import get_db, Base
 from sqlalchemy.orm import Session
-from app.models.userModel import UserModel
-from app.schemas.userSchema import UserSchema, UserCreateSchema, UserUpdateSchema, UserWithFollow
-from app.config.hashing import Hashing
+from models.userModel import UserModel
+from schemas.userSchema import UserSchema, UserCreateSchema, UserUpdateSchema, UserWithFollow
+from config.hashing import Hashing
 from hashlib import md5
-from app.models.commentModel import CommentModel
+from models.commentModel import CommentModel
 
 
 class UserService():

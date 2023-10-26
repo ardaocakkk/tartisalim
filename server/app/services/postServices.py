@@ -1,14 +1,14 @@
 from fastapi import HTTPException, status, Depends
-from app.config.database import get_db, Base
+from config.database import get_db, Base
 from sqlalchemy import and_
 from sqlalchemy.orm import Session
-from app.models.postModel import PostModel
-from app.schemas.postSchema import PostSchema, PostCreateSchema
-from app.schemas.userSchema import UserSchema
-from app.services.userServices import UserService
-from app.services.commentServices import CommentService
-from app.auth.auth import Auth
-from app.models.userModel import UserModel
+from models.postModel import PostModel
+from schemas.postSchema import PostSchema, PostCreateSchema
+from schemas.userSchema import UserSchema
+from services.userServices import UserService
+from services.commentServices import CommentService
+from auth.auth import Auth
+from models.userModel import UserModel
 from datetime import datetime
 
 

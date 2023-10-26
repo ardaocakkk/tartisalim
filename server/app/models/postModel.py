@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey, Table
-from app.config.database import Base
-from app.models.userModel import UserModel
+from config.database import Base
+from models.userModel import UserModel
 from sqlalchemy.orm import relationship
 
 class PostModel(Base):

@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, status, File, UploadFile
 import shutil
 from sqlalchemy.orm import Session
-from app.config.database import get_db
-from app.schemas.postSchema import PostSchema, PostCreateSchema
-from app.schemas.userSchema import UserSchema
-from app.services.postServices import PostService
-from app.services.userServices import UserService
-from app.services.commentServices import CommentService
-from app.auth.auth import Auth
+from config.database import get_db
+from schemas.postSchema import PostSchema, PostCreateSchema
+from schemas.userSchema import UserSchema
+from services.postServices import PostService
+from services.userServices import UserService
+from services.commentServices import CommentService
+from auth.auth import Auth
 
 
 router = APIRouter(prefix="/posts", tags=["Posts"])
