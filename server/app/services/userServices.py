@@ -9,10 +9,9 @@ from models.commentModel import CommentModel
 
 
 class UserService():
-    async def getAllUsers(db: Session):
+    async def getAllUsers(db: Session) -> UserSchema:
         users = db.query(UserModel).all()
-        return  users
-    
+        return users    
     
     async def get_user_by_name(username: str, db: Session):
         user = db.query(UserModel).filter(UserModel.username == username).first()
