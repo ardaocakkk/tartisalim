@@ -1,5 +1,5 @@
 # tartisalim
-A social media application to talk about your ideas or discuss about anything with people
+A social media application for talk about your ideas or discuss about anything with people
 
 
 
